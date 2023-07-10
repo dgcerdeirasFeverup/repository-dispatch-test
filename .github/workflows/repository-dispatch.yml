@@ -2,9 +2,10 @@ name: Webhook build landing
 on:
   repository_dispatch:
     types:
-      - experiences-refresh
+      - test
 jobs:
   build-landing:
     runs-on: ubuntu-latest
     steps:
+      - name: Echo test
         run: echo "IT WORKS I CAN'T BELEIVE IT"
