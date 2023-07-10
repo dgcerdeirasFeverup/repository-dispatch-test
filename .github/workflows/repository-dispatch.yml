@@ -1,0 +1,10 @@
+name: Webhook build landing
+on:
+  repository_dispatch:
+    types:
+      - experiences-refresh
+jobs:
+  build-landing:
+    runs-on: ubuntu-latest
+    steps:
+        run: echo "IT WORKS I CAN'T BELEIVE IT"
