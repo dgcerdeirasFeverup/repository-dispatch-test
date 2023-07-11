@@ -2,7 +2,7 @@ name: Webhook build landing
 on:
   repository_dispatch:
     types:
-      - test
+      - CHANGE_NOTIFICATION
 jobs:
   build-landing:
     runs-on: ubuntu-latest
