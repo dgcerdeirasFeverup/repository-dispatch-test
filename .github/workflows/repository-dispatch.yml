@@ -2,12 +2,10 @@ name: Webhook build landing
 on:
   repository_dispatch:
     types:
-      - CHANGE_NOTIFICATION
+      - UPDATE
 jobs:
   build-landing:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo test 1
-        run: echo "IT WORKS I CAN'T BELEIVE IT"
-      - name: Echo test 2
-        run: echo "IT WORKS I CAN'T BELEIVE IT"
+      - name: Echo test
+        run: echo "Working"
