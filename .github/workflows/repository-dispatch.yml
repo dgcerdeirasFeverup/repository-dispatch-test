@@ -2,10 +2,12 @@ name: Webhook build landing
 on:
   repository_dispatch:
     types:
-      - UPDATE
+      - landing-build
+env:
+  LANDING_NAME: ${{ github.event.client_payload.landing_name }}
 jobs:
   build-landing:
     runs-on: ubuntu-latest
     steps:
       - name: Echo test
-        run: echo "Working"
+        run: echo "Landing name ${{ env.LANDING_NAME }}"
