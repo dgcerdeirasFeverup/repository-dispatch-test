@@ -13,6 +13,7 @@ env:
   LANDING_NAME: ${{github.event.inputs.landing_name || github.event.client_payload.landing_name }}
 jobs:
   clone-landing:
+    runs-on: ubuntu-latest
     steps:
       - name: Echo test
         run: echo "Landing name ${{ env.LANDING_NAME }}"
