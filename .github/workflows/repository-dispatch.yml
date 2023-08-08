@@ -2,7 +2,7 @@ name: Webhook build landing
 on:
   repository_dispatch:
     types:
-      - landing-build
+      - build-landing
 env:
   LANDING_NAME: ${{ github.event.client_payload.landing_name }}
 jobs:
