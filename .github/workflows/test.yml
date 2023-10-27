@@ -36,4 +36,4 @@ jobs:
 
       - name: Call script
         run: |
-          npm run test -- ${{ env.LANDING_NAME }} -- ${{ env.LANDING_CMS }}
+          npm run test -- ${{ env.LANDING_NAME }} ${{ env.LANDING_CMS }}
