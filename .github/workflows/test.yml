@@ -1,19 +1,31 @@
-name: Clone landing
+name: Create landing
 on:
   workflow_dispatch:
     inputs:
       landing_name:
-        description: "New landing_name"
+        description: "New landing-name"
         required: true
         type: string
+      landing_cms:
+        required: true
+        type: choice
+        description: Which CMS to use; grouped = old | modular = new
+        options:
+          - grouped
+          - modular
   repository_dispatch:
     types:
       - create-landing
 env:
-  LANDING_NAME: ${{github.event.inputs.landing_name || github.event.client_payload.landing_name }}
+  LANDING_NAME: ${{ github.event.inputs.landing_name || github.event.client_payload.landing_name }}
+  LANDING_CMS: ${{ github.event.inputs.landing_cms || github.event.client_payload.landing_cms }}
 jobs:
   clone-landing:
     runs-on: ubuntu-latest
     steps:
       - name: Echo test
-        run: echo "Landing name ${{ env.LANDING_NAME }}"
+        run: echo "${{ env.LANDING_NAME }} ${{ env.LANDING_CMS }}"
+
+      - name: Call script
+        run: |
+          npm run test -- ${{ env.LANDING_NAME }} -- ${{ env.LANDING_CMS }}
