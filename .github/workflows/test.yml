@@ -6,20 +6,20 @@ on:
         description: "New landing-name"
         required: true
         type: string
-      landing_cms:
+      landing_tech:
         required: true
         type: choice
-        description: Which CMS to use; grouped = old | modular = new
-        default: grouped
+        description: "HBS or Astro"
+        default: hbs
         options:
-          - grouped
-          - modular
+          - hbs
+          - astro
   repository_dispatch:
     types:
       - create-landing
 env:
   LANDING_NAME: ${{ github.event.inputs.landing_name || github.event.client_payload.landing_name }}
-  LANDING_CMS: ${{ github.event.inputs.landing_cms || github.event.client_payload.landing_cms }}
+  LANDING_CMS: ${{ github.event.inputs.landing_tech || github.event.client_payload.landing_tech }}
 jobs:
   clone-landing:
     runs-on: ubuntu-latest
