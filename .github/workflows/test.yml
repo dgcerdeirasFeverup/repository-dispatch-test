@@ -10,10 +10,10 @@ on:
         required: true
         type: choice
         description: "HBS or Astro"
-        default: hbs
         options:
           - hbs
           - astro
+        default: hbs
   repository_dispatch:
     types:
       - create-landing
